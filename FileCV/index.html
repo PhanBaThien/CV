@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Phan Ba Thien</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Detailed CV - Phan Ba Thien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* * Layout and Font Setup
-         */
+        /* CSS cho hiệu ứng mờ (iOS Style) */
+        .glass-button {
+            transition: all 0.2s ease-in-out;
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .glass-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* * Layout and Font Setup */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,28 +32,49 @@
             background-color: #f0f2f5;
             display: flex;
             justify-content: center;
-            align-items: center;
+            /* Thay đổi: Giữ nguyên padding cho các bên, thêm padding-top để tránh nav bar */
             padding: 40px 0;
+            padding-top: 100px; 
             line-height: 1.6;
         }
 
-        /* * Main CV Container (A4 simulation)
-         */
+        /* NAVIGATION BAR SPECIFIC STYLING */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+            padding-top: 20px;
+            background-color: transparent;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.7); 
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* * Main CV Container (A4 simulation) */
         .cv-container {
             width: 1024px;
-            /* Thay đổi: Dùng min-height để cho phép kéo dài sang nhiều trang */
-            min-height: 1280px; 
+            min-height: 1280px;
             background-color: #ffffff;
-            /* Hiệu ứng bo góc và đổ bóng chỉ có trên màn hình */
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             display: flex;
-            /* Khôi phục overflow: hidden để giữ bố cục trên web */
-            overflow: hidden; 
+            overflow: hidden;
+            /* Thay đổi: Loại bỏ margin-top vì đã dùng padding-top trên body */
+            margin-top: 0; 
         }
 
-        /* * LEFT COLUMN (Sidebar)
-         */
+        /* * LEFT COLUMN (Sidebar) */
         .sidebar {
             width: 36%;
             background-color: #2c3e50; /* Dark Blue-Gray */
@@ -57,7 +88,7 @@
             border-radius: 50%;
             border: 4px solid #3498db; /* Accent Blue border */
             object-fit: cover;
-            /* Thay đổi này: Dịch chuyển ảnh xuống 25% từ trên xuống */
+            /* Vị trí ảnh gốc trong CV 2 cột */
             object-position: center 25%; 
             margin: 0 auto 30px auto;
             display: block;
@@ -135,8 +166,7 @@
         }
 
 
-        /* * RIGHT COLUMN (Main Content)
-         */
+        /* * RIGHT COLUMN (Main Content) */
         .main-content {
             width: 64%;
             background-color: #ffffff;
@@ -186,8 +216,7 @@
 
         .experience-item, .project-item {
             margin-bottom: 25px;
-            /* Quan trọng cho in ấn: Ngăn các mục bị ngắt giữa trang */
-            page-break-inside: avoid; 
+            page-break-inside: avoid;
         }
 
         .experience-item h3, .project-item h3 {
@@ -218,8 +247,7 @@
             line-height: 1.6;
         }
 
-        /* * Custom bullet point (Check mark)
-         */
+        /* * Custom bullet point (Check mark) */
         .experience-item li::before, .project-item li::before {
             content: '\f00c'; /* FontAwesome 'check' icon */
             font-family: 'Font Awesome 6 Free';
@@ -236,68 +264,103 @@
             font-weight: 700;
         }
         
-        /* * PRINT STYLES (Kéo full A4, in màu nền, loại bỏ bo góc)
-         */
+        /* * PRINT STYLES */
+        @page {
+            margin: 0; 
+            size: A4;
+        }
+
         @media print {
             body {
                 padding: 0 !important;
                 margin: 0 !important;
                 background: white !important;
-                font-size: initial; 
+                font-size: 14px; 
+                line-height: 1.4;
             }
             .cv-container {
-                height: auto; 
-                width: 100vw !important; /* Kéo full chiều rộng viewport */
-                min-height: 100vh !important; /* Kéo full chiều cao viewport */
-                /* Xóa các hiệu ứng tạo khung giữa khi in */
+                width: 21cm !important; 
+                min-height: 29.7cm !important;
+                height: auto !important;
                 box-shadow: none !important;
                 border-radius: 0 !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background-color: white !important;
             }
-            
-            /* Sửa lỗi In Màu Nền Sidebar */
             .sidebar {
                 -webkit-print-color-adjust: exact !important; 
                 color-adjust: exact !important;
                 background-color: #2c3e50 !important;
-                
-                position: relative; 
-                /* Giảm padding để tận dụng tối đa không gian A4 */
-                padding: 20px;
-                width: 36%;
+                padding: 20px 15px !important;
             }
             .main-content {
-                /* Giảm padding để tận dụng tối đa không gian A4 */
-                padding: 25px 20px; 
+                padding: 25px 20px !important;
             }
-            .header {
-                margin-bottom: 20px;
+            .sidebar-section {
+                margin-bottom: 20px; 
             }
             .main-section {
                 margin-bottom: 20px;
             }
-            .experience-item li, .project-item li {
-                font-size: 15px; 
-                margin-bottom: 10px; 
+            .experience-item, .project-item {
+                margin-bottom: 15px; 
             }
             .main-content, .sidebar {
                 overflow: visible !important;
+            }
+            /* Ẩn Navigation Bar khi in */
+            .main-nav {
+                display: none;
             }
         }
 
     </style>
 </head>
 <body>
+    
+    <!-- NAVIGATION BAR - Cố định, Căn giữa và Kiểu dáng Sang trọng (iOS 16 Look) -->
+    <nav class="main-nav">
+        <div class="nav-content glass-button">
+            <!-- Navigation Links -->
+            <div class="flex space-x-3">
+                
+                <!-- Button 1: View Detailed CV (Current Page - Dark Button) -->
+                <a href="https://phanbathien.github.io/CV/FileCV/" 
+                   class="glass-button bg-indigo-600 text-white 
+                          hover:bg-indigo-700 
+                          px-4 py-2 rounded-xl text-sm font-medium transition duration-150 
+                          flex items-center space-x-2 justify-center"
+                          style="min-width: 140px;">
+                    <span class="text-xl">📝</span> 
+                    <span>CV</span>
+                </a>
 
-    <!-- Start CV Container --><div class="cv-container">
+                <!-- Button 2: Cover Letter (White Button) -->
+                <a href="https://phanbathien.github.io/CV/ApplicationLetter/" 
+                   class="glass-button text-gray-700 bg-white/50 border border-gray-200 
+                          hover:text-gray-900 hover:bg-white/80 
+                          px-4 py-2 rounded-xl text-sm font-medium transition duration-150 
+                          flex items-center space-x-2 justify-center"
+                          style="min-width: 140px;">
+                    <span class="text-xl">✉️</span> 
+                    <span>Cover Letter</span>
+                </a>
+            </div>
+        </div>
+    </nav>
 
-        <!-- LEFT COLUMN (SIDEBAR) --><aside class="sidebar">
+    <!-- Start CV Container -->
+    <div class="cv-container">
 
-            <!-- Profile Image: Đường dẫn đã được sửa thành tên file đơn giản --><img src="ass1.png" alt="Phan Ba Thien Profile Picture" class="profile-image">
+        <!-- LEFT COLUMN (SIDEBAR) -->
+        <aside class="sidebar">
 
-            <!-- Contact Information --><section class="sidebar-section">
+            <!-- Profile Image -->
+            <img src="ass1.png" alt="Phan Ba Thien Profile Picture" class="profile-image">
+
+            <!-- Contact Information -->
+            <section class="sidebar-section">
                 <h2 class="sidebar-title">Contact Information</h2>
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -321,7 +384,8 @@
                 </div>
             </section>
 
-            <!-- Technical Skills --><section class="sidebar-section">
+            <!-- Technical Skills -->
+            <section class="sidebar-section">
                 <h2 class="sidebar-title">Technical Skills</h2>
                 <div class="skill-item">
                     <strong>Backend Core</strong>
@@ -345,7 +409,8 @@
                 </div>
             </section>
 
-            <!-- Education --><section class="sidebar-section">
+            <!-- Education -->
+            <section class="sidebar-section">
                 <h2 class="sidebar-title">Education</h2>
                 <div class="education-item">
                     <h4>BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h4>
@@ -355,7 +420,8 @@
                 </div>
             </section>
 
-            <!-- Certifications --><section class="sidebar-section">
+            <!-- Certifications -->
+            <section class="sidebar-section">
                 <h2 class="sidebar-title">Certifications</h2>
                 <div class="cert-item">
                     <h4>IBM Full Stack Software Developer</h4>
@@ -371,7 +437,8 @@
                 </div>
             </section>
 
-            <!-- Languages --><section class="sidebar-section">
+            <!-- Languages -->
+            <section class="sidebar-section">
                 <h2 class="sidebar-title">Languages</h2>
                  <div class="lang-item">
                     <h4>Vietnamese (Native)</h4>
@@ -381,21 +448,27 @@
                 </div>
             </section>
 
-        </aside> <!-- End Sidebar --><!-- RIGHT COLUMN (MAIN CONTENT) --><main class="main-content">
+        </aside> <!-- End Sidebar -->
 
-            <!-- Header --><header class="header">
+        <!-- RIGHT COLUMN (MAIN CONTENT) -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="header">
                 <h1>PHAN BA THIEN</h1>
                 <h2>BACKEND DEVELOPMENT ENGINEER</h2>
             </header>
 
-            <!-- Profile Summary --><section class="main-section">
+            <!-- Profile Summary -->
+            <section class="main-section">
                 <h2 class="main-title">Profile Summary</h2>
                 <div class="summary-content">
                     <p>Backend Development Expert (University of Greenwich, UK) with 1.5 years of practical experience in building high-performance, distributed systems using <strong>Node.js (Serverless on AWS Lambda)</strong> and <strong>.NET Core (Microservices Architecture)</strong>. Directly optimized systems, achieving key metrics such as a <strong>20% reduction in API latency</strong> and a <strong>15% reduction in deployment errors</strong>. Committed to developing scalable and secure system solutions.</p>
                 </div>
             </section>
 
-            <!-- Professional Experience --><section class="main-section">
+            <!-- Professional Experience -->
+            <section class="main-section">
                 <h2 class="main-title">Professional Experience</h2>
 
                 <div class="experience-item">
@@ -420,7 +493,8 @@
                 </div>
             </section>
 
-            <!-- Personal Projects --><section class="main-section">
+            <!-- Personal Projects -->
+            <section class="main-section">
                 <h2 class="main-title">Personal Projects</h2>
 
                 <div class="project-item">
@@ -442,5 +516,33 @@
                 </div>
             </section>
 
-        </main> <!-- End Main Content --></div> <!-- End CV Container --></body>
+            <!-- Education & Certifications -->
+            <section class="main-section">
+                <h2 class="main-title">Additional Info</h2>
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-[#34495e] mb-3">Education</h3>
+                        <div class="space-y-2">
+                            <p class="font-bold">BACHELOR OF SCIENCE IN COMPUTER SCIENCE</p>
+                            <p class="text-[#3498db]">University of Greenwich (UK)</p>
+                            <p class="text-sm text-gray-600">2020 – 2025</p>
+                            <p class="text-sm">Achievement: Best Student in Group Work (2023)</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-[#34495e] mb-3">Certifications</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="font-bold">IBM Full Stack Software Developer (Coursera)</p>
+                            <p class="font-bold">IBM AI Enterprise Workflow (Coursera)</p>
+                            <p class="font-bold">Backend Development Course (Cybersoft Academy)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main> <!-- End Main Content -->
+
+    </div> <!-- End CV Container -->
+
+</body>
 </html>

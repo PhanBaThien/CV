@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter - Phan Ba Thien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS for the sleek, frosted glass effect (iOS Style) */
+        .glass-button {
+            transition: all 0.2s ease-in-out;
+            /* Frosted background effect */
+            backdrop-filter: blur(10px) saturate(180%);
+            -webkit-backdrop-filter: blur(10px) saturate(180%);
+            /* Soft shadow */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        .glass-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f8f9fa; /* Light Gray Background */
+            padding-top: 20px; 
+        }
+        .letter-container {
+            /* Simulate A4 paper size for professional look */
+            max-width: 800px; 
+            min-height: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            line-height: 1.65;
+        }
+        /* Highlight sections that need editing */
+        .highlight-edit {
+            background-color: #fef3c7; /* Light yellow background */
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="p-4">
+    
+    <!-- NAVIGATION BAR - Centered and Premium Style -->
+    <nav class="w-full mb-10 flex justify-center">
+        <div class="flex space-x-6 p-3 rounded-2xl bg-white/70 glass-button border border-gray-100">
+            <!-- Navigation Links -->
+            <div class="flex space-x-3">
+                
+                <!-- Button 1: View Detailed CV (White Button) -->
+                <a href="https://phanbathien.github.io/CV/FileCV/" 
+                   class="glass-button text-gray-700 bg-white/50 border border-gray-200 
+                          hover:text-gray-900 hover:bg-white/80 
+                          px-4 py-2 rounded-xl text-sm font-medium transition duration-150 
+                          flex items-center space-x-2">
+                    <span class="text-xl">📝</span> 
+                    <span>View Detailed CV</span>
+                </a>
+
+                <!-- Button 2: Cover Letter (Dark Blue Button - Current Page) -->
+                <a href="https://phanbathien.github.io/CV/FileCV/ApplicationLetter" 
+                   class="glass-button bg-indigo-600 text-white 
+                          hover:bg-indigo-700 
+                          px-4 py-2 rounded-xl text-sm font-medium transition duration-150 
+                          flex items-center space-x-2">
+                    <span class="text-xl">✉️</span> 
+                    <span>Cover Letter</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="letter-container">
+        
+        <!-- HEADER / CONTACT INFO -->
+        <div class="text-right mb-12">
+            <p class="text-lg font-semibold text-gray-800">Phan Ba Thien</p>
+            <p class="text-sm text-gray-600">0342868100</p>
+            <p class="text-sm text-gray-600">phanbathien700@icloud.com</p>
+            <p class="text-sm text-blue-600 hover:text-blue-800">
+                <a href="https://www.google.com/search?q=linkedin.com/in/phan-ba-thien-27735815b" target="_blank">LinkedIn Profile</a>
+            </p>
+        </div>
+
+        <!-- DATE AND GREETING -->
+        <p class="text-gray-500 mb-8" id="currentDate"></p>
+        
+        <!-- Neutral Greeting for mass application -->
+        <p class="mb-6 font-semibold text-gray-800">Dear Hiring Team,</p>
+
+        <!-- INTRO PARAGRAPH -->
+        <p class="mb-6 text-gray-700">
+            I am writing to submit my profile and express my strong interest in a Backend Development Engineer role. With a Bachelor of Science in Computer Science from the University of Greenwich (UK), combined with practical experience in developing highly distributed and high-performance systems, I am confident in my skills and enthusiasm to immediately contribute to your organization.
+        </p>
+
+        <!-- CORE STRENGTHS SECTION -->
+        <h3 class="text-xl font-bold text-gray-800 border-b-2 border-indigo-500 pb-2 mb-4 mt-8">Core Strengths and Achievements</h3>
+
+        <ul class="space-y-4 text-gray-700 ml-4">
+            <li class="flex items-start">
+                <span class="text-indigo-500 text-xl mr-3 mt-1">&#x2713;</span>
+                <div>
+                    <strong class="font-semibold text-gray-900">Versatile Architecture Implementation:</strong> I am proficient in deploying both <span class="font-bold">Serverless</span> architecture (using Node.js and AWS Lambda) and <span class="font-bold">Microservices</span> architecture (.NET Core). This experience allows me to select the most flexible and suitable technological solution for specific service requirements.
+                </div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-indigo-500 text-xl mr-3 mt-1">&#x2713;</span>
+                <div>
+                    <strong class="font-semibold text-gray-900">Performance & Stability Focus:</strong> I have a direct track record in system improvement, notably achieving a <span class="font-bold text-red-600">20% reduction in API latency</span> through Node.js/Express optimization and database schema tuning (MySQL/MongoDB). Furthermore, applying Unit Testing, Code Reviews, and CI/CD helped boost <span class="font-bold text-red-600">system stability by 15%</span> and minimized deployment errors.
+                </div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-indigo-500 text-xl mr-3 mt-1">&#x2713;</span>
+                <div>
+                    <strong class="font-semibold text-gray-900">Proficiency in Modern Process:</strong> I have proven experience working effectively in an <span class="font-bold">Agile/Scrum</span> environment, am proficient with Git/GitHub, and can reliably manage critical database systems including SQL Server, MongoDB, and MySQL.
+                </div>
+            </li>
+        </ul>
+
+        <!-- CLOSING PARAGRAPH -->
+        <p class="mt-8 mb-6 text-gray-700">
+            I am keen to discuss how my practical experience and achievements, including my personal projects (such as <strong>Shoe Sales System</strong> and <strong>Online Bookstore</strong>), align with the requirements of your organization.
+        </p>
+
+        <p class="mb-8 text-gray-700">
+            Thank you for reviewing my credentials. I look forward to hearing from you soon.
+        </p>
+
+        <!-- SIGNATURE -->
+        <div class="mt-10">
+            <p class="text-gray-700">Sincerely,</p>
+            <p class="text-lg font-bold text-gray-900 mt-2">Phan Ba Thien</p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const dateElement = document.getElementById('currentDate');
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date();
+            // Change locale to 'en-US' for English date format
+            dateElement.textContent = today.toLocaleDateString('en-US', options);
+        });
+    </script>
+</body>
+</html>
